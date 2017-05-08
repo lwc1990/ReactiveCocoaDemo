@@ -15,6 +15,8 @@
 		3D75FFCF1EC0603D00C0017F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D75FFCD1EC0603D00C0017F /* LaunchScreen.storyboard */; };
 		3D75FFD71EC0617A00C0017F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3D75FFD61EC0617A00C0017F /* Podfile */; };
 		3D75FFDA1EC0632300C0017F /* AGTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D75FFD91EC0632300C0017F /* AGTestVC.m */; };
+		3D75FFDF1EC067CC00C0017F /* AGFMDBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D75FFDC1EC067CC00C0017F /* AGFMDBUtils.m */; };
+		3D75FFE01EC067CC00C0017F /* AGSqliteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D75FFDE1EC067CC00C0017F /* AGSqliteUtils.m */; };
 		E7C397478E1F7048AED05F51 /* libPods-ReactiveCocoaDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D2A860FEB86BF9C38CFD2A /* libPods-ReactiveCocoaDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,10 @@
 		3D75FFD61EC0617A00C0017F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		3D75FFD81EC0632300C0017F /* AGTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTestVC.h; sourceTree = "<group>"; };
 		3D75FFD91EC0632300C0017F /* AGTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTestVC.m; sourceTree = "<group>"; };
+		3D75FFDB1EC067CC00C0017F /* AGFMDBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFMDBUtils.h; sourceTree = "<group>"; };
+		3D75FFDC1EC067CC00C0017F /* AGFMDBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGFMDBUtils.m; sourceTree = "<group>"; };
+		3D75FFDD1EC067CC00C0017F /* AGSqliteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSqliteUtils.h; sourceTree = "<group>"; };
+		3D75FFDE1EC067CC00C0017F /* AGSqliteUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSqliteUtils.m; sourceTree = "<group>"; };
 		F1D2A860FEB86BF9C38CFD2A /* libPods-ReactiveCocoaDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactiveCocoaDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +77,10 @@
 		3D75FFBE1EC0603D00C0017F /* ReactiveCocoaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3D75FFDB1EC067CC00C0017F /* AGFMDBUtils.h */,
+				3D75FFDC1EC067CC00C0017F /* AGFMDBUtils.m */,
+				3D75FFDD1EC067CC00C0017F /* AGSqliteUtils.h */,
+				3D75FFDE1EC067CC00C0017F /* AGSqliteUtils.m */,
 				3D75FFD81EC0632300C0017F /* AGTestVC.h */,
 				3D75FFD91EC0632300C0017F /* AGTestVC.m */,
 				3D75FFC21EC0603D00C0017F /* AppDelegate.h */,
@@ -238,6 +248,8 @@
 				3D75FFC41EC0603D00C0017F /* AppDelegate.m in Sources */,
 				3D75FFDA1EC0632300C0017F /* AGTestVC.m in Sources */,
 				3D75FFC11EC0603D00C0017F /* main.m in Sources */,
+				3D75FFDF1EC067CC00C0017F /* AGFMDBUtils.m in Sources */,
+				3D75FFE01EC067CC00C0017F /* AGSqliteUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

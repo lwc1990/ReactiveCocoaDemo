@@ -8,7 +8,9 @@
 
 #import "AGTestVC.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-@interface AGTestVC ()
+#import "AGSqliteUtils.h"
+#import "AGFMDBUtils.h"
+@interface AGTestVC ()<UITextFieldDelegate,AGSqliteUtilsDelegate>
 @property (nonatomic,strong) UITextField *userNameText,*passWordText;
 @property (nonatomic,strong) UIButton *cancelBtn,*signInBtn;
 @end
@@ -16,9 +18,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self createLoginUI];
-    [self signInControl];
+    //    [self testSqlite3];
+    //    [self createLoginUI];
+    //    [self signInControl];
+    
+}
+-(void)afterExecSql:(sqlite3_stmt *)stmt
+{
+    if (!stmt) return;
+    while (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        char *name = (char*)sqlite3_column_text(stmt, 1);
+        NSString *nsNameStr = [[NSString alloc]initWithUTF8String:name];
+        
+        int age = sqlite3_column_int(stmt, 2);
+        
+        char *address = (char*)sqlite3_column_text(stmt, 3);
+        NSString *nsAddressStr = [[NSString alloc]initWithUTF8String:address];
+        
+        NSLog(@"name:%@  age:%d  address:%@",nsNameStr,age, nsAddressStr);
+    }
+}
+-(void)testSqlite3
+{
+    BOOL execSucess = [AGSqliteUtils noQueryExec:@"testDB" execSql:@"CREATE TABLE IF NOT EXISTS testInfo (ID INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, address TEXT)"];
+    if (!execSucess) return;
+    BOOL insertSuccess = [AGSqliteUtils noQueryExec:@"testDB" execSql:@"INSERT INTO testInfo ('name', 'age', 'address') VALUES ('张三',23, '西城区')"];
+    if (!insertSuccess) return;
+    [AGSqliteUtils QueryExec:@"testDB" execSql:@"select * from testInfo" queryObject:self];
+    
+}
+-(void)testFMDB
+{
+    FMDatabase *fDB = [AGFMDBUtils dataBase:@"fDataBase"];
     
 }
 -(void)createLoginUI
@@ -45,7 +77,7 @@
         
         [self.signInBtn setFrame:CGRectMake(CGRectGetMaxX(self.cancelBtn.frame) + 20,CGRectGetMinY(self.cancelBtn.frame),40,30)];
         [self.signInBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-
+        
     }
 }
 /*
@@ -79,7 +111,7 @@
         self.signInBtn.enabled = [enabled boolValue];
         self.signInBtn.backgroundColor = [enabled boolValue]?[UIColor grayColor]:[UIColor lightGrayColor];
     }];
-
+    
     
 }
 //判断用户名的合法性
@@ -133,13 +165,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

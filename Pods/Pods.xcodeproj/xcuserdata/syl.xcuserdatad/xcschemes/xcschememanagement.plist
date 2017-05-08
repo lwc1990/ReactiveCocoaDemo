@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ReactiveCocoaDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3D6896E7A8FA947BA19190071355E2E9</key>
+		<key>7EE4E03B55087CE296524BF72CC623A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFE27FE780EB15E1BF6A046DF3284DA5</key>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7325C1DBC82321D0916E963F0C7FE63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
